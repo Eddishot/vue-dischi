@@ -2,7 +2,7 @@
     <div class="bg-color">
         <div class="container">
             <GenreSearch
-                @typeOfGenreSearch="albumFilter">
+                @typeOfGenre="albumFilter">
             </GenreSearch>
             <div class="row row-cols-5">
                 <div class=" col mb-2" v-for="(album, i) in filteredAlbums" :key="i">
@@ -63,8 +63,8 @@
                 if(!this.searchByGenre){
                     return this.arrayAlbum;
                 }
-                return this.arrayAlbum.filter(el =>{
-                    return el.genre.toLowerCase().includes(this.searchByGenre.toLowerCase().trim())
+                return this.arrayAlbum.filter((disc) =>{
+                    return this.searchByGenre.toLowerCase()=== disc.genre.toLowerCase()
                 })
             }
         },
