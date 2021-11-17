@@ -1,6 +1,9 @@
 <template>
     <div class="bg-color">
         <div class="container">
+            <GenreSearch
+                @typeOfGenreSearch="albumFilter">
+            </GenreSearch>
             <div class="row row-cols-5">
                 <div class=" col mb-2" v-for="(album, i) in filteredAlbums" :key="i">
                     <SingleAlbum   
@@ -22,21 +25,25 @@
  <script>
     import SingleAlbum from "./SingleAlbum.vue"
     import axios from "axios";
+    import GenreSearch from "./GenreSearch.vue";
  export default {  
         name:"AlbumsPage",
 
         components:{
 
          SingleAlbum,
+          GenreSearch,
 
         },
 
-        data(){
-            return{
+        data(){ return{
                 arrayAlbum: [],
                 searchByGenre:"",
             }
         },
+                
+               
+        
 
         methods:{
 
